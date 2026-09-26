@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sweet Crumbs Bakery - Fresh Artisanal Patisserie</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Sweet Crumbs Bakery - Artisanal Patisserie in Coimbatore</title>
     <style>
         * {
             margin: 0;
@@ -12,23 +11,50 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --cream: #fdf9f2;
+            --light-brown: #f7f3ec;
+            --lighter-brown: #f1ede6;
+            --dark-brown: #210f07;
+            --medium-brown: #382319;
+            --rust: #944924;
+            --text-gray: #4f4440;
+            --border-gray: #d3c3bd;
+            --light-gray: #ebe8e1;
+            --accent-orange: #fe9e72;
+            --light-orange: #ffdbcd;
+            --green: #059669;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #fdf9f2;
-            color: #4f4440;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-gray);
             line-height: 1.6;
         }
 
-        /* HEADER BANNER */
-        .header-banner {
-            background-color: #f7f3ec;
-            padding: 24px 48px;
-            box-shadow: 0px 1px 2px rgba(0,0,0,0.05);
+        /* HEADER SECTION */
+        .header {
+            background-color: var(--light-brown);
+            padding: 24px 0;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 48px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 24px;
+            gap: 16px;
         }
 
         .header-left {
@@ -37,52 +63,53 @@
             align-items: center;
         }
 
-        .header-badge {
-            background-color: #ffdbcd;
-            border-radius: 9999px;
+        .badge-small {
+            background-color: var(--light-orange);
             width: 28px;
             height: 28px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 14px;
         }
 
-        .header-label {
-            font-weight: 700;
-            color: #944924;
+        .header-text {
             font-size: 12px;
+            font-weight: 700;
             letter-spacing: 1.2px;
             text-transform: uppercase;
+            color: var(--rust);
+            white-space: nowrap;
         }
 
         .header-right {
             display: flex;
             gap: 16px;
             align-items: center;
-            flex-wrap: wrap;
         }
 
         .status-indicator {
             display: flex;
             gap: 4px;
             align-items: center;
+            font-size: 12px;
+            font-weight: 600;
         }
 
         .status-dot {
             width: 8px;
             height: 8px;
-            background-color: #059669;
             border-radius: 50%;
+            background-color: var(--green);
         }
 
-        .status-text {
-            font-size: 12px;
-            font-weight: 600;
-            color: #4f4440;
+        .divider {
+            color: var(--border-gray);
+            font-size: 15px;
         }
 
-        .rating {
+        .rating-group {
             display: flex;
             gap: 4px;
             align-items: center;
@@ -95,280 +122,246 @@
 
         .rating-text {
             font-size: 11px;
-            font-weight: 700;
-            color: #1c1c18;
+            font-weight: 600;
+            color: var(--dark-brown);
+            letter-spacing: 0.66px;
+            white-space: nowrap;
         }
 
-        /* MAIN CONTAINER */
-        .container {
+        /* MAIN SECTIONS */
+        .main-container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 48px;
         }
 
-        /* HERO SECTION */
-        .section-hero {
-            background-color: #fdf9f2;
+        /* REVIEWS SECTION */
+        .reviews-section {
+            background-color: var(--cream);
             padding: 96px 0;
-            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .section-hero::before,
-        .section-hero::after {
+        .reviews-section::before {
             content: '';
             position: absolute;
-            border-radius: 9999px;
-            filter: blur(32px);
-            pointer-events: none;
-        }
-
-        .section-hero::before {
-            width: 384px;
-            height: 384px;
-            background-color: rgba(255, 219, 205, 0.2);
-            top: -128px;
             right: -128px;
-        }
-
-        .section-hero::after {
+            top: -128px;
             width: 384px;
             height: 384px;
-            background-color: rgba(255, 221, 174, 0.3);
-            bottom: -128px;
-            left: -128px;
+            background: radial-gradient(circle, rgba(255, 219, 205, 0.2), transparent);
+            border-radius: 50%;
+            filter: blur(32px);
         }
 
-        .section-content {
+        .reviews-section::after {
+            content: '';
+            position: absolute;
+            left: -128px;
+            bottom: -128px;
+            width: 384px;
+            height: 384px;
+            background: radial-gradient(circle, rgba(255, 221, 174, 0.3), transparent);
+            border-radius: 50%;
+            filter: blur(32px);
+        }
+
+        .section-header {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 40px;
             position: relative;
             z-index: 1;
         }
 
         .section-tag {
-            background-color: #ebe8e1;
+            background-color: var(--light-gray);
             display: inline-flex;
             gap: 4px;
             align-items: center;
             padding: 4px 16px;
             border-radius: 9999px;
-            margin-bottom: 16px;
-            box-shadow: 0px 1px 1px rgba(0,0,0,0.05);
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
         }
 
-        .tag-icon {
+        .section-tag-icon {
             width: 12px;
             height: 12px;
         }
 
-        .tag-text {
-            font-weight: 700;
-            color: #944924;
+        .section-tag-text {
             font-size: 11px;
-            text-transform: uppercase;
+            font-weight: 700;
             letter-spacing: 1.1px;
+            text-transform: uppercase;
+            color: var(--rust);
+            white-space: nowrap;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
             font-size: 56px;
             font-weight: 600;
-            color: #210f07;
-            margin: 8px 0 24px 0;
+            color: var(--dark-brown);
+            text-align: center;
             letter-spacing: -1.12px;
-            line-height: 1.14;
+            white-space: nowrap;
         }
 
         .section-subtitle {
-            font-size: 18px;
-            color: #4f4440;
             max-width: 672px;
-            margin: 0 auto 40px;
-            line-height: 1.56;
-        }
-
-        /* FORM SECTION */
-        .form-section {
-            background-color: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0px 4px 6px rgba(0,0,0,0.1), 0px 2px 4px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .form-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: #210f07;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .form-section p {
-            color: #4f4440;
-            margin-bottom: 24px;
-            font-size: 14px;
-        }
-
-        .form-group {
-            margin-bottom: 16px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #210f07;
-            font-size: 14px;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #d3c3bd;
-            border-radius: 8px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 14px;
-            color: #210f07;
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #944924;
-        }
-
-        .form-button {
-            width: 100%;
-            padding: 16px;
-            background-color: #944924;
-            color: white;
-            border: none;
-            border-radius: 9999px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .form-button:hover {
-            background-color: #6b3618;
-        }
-
-        .form-button:disabled {
-            background-color: #d3c3bd;
-            cursor: not-allowed;
-        }
-
-        .form-message {
-            margin-top: 16px;
-            padding: 12px;
-            border-radius: 8px;
             text-align: center;
-            font-size: 14px;
-            display: none;
-        }
-
-        .form-message.success {
-            background-color: #d1fae5;
-            color: #065f46;
-            display: block;
-        }
-
-        .form-message.error {
-            background-color: #fee2e2;
-            color: #991b1b;
-            display: block;
-        }
-
-        /* REVIEWS SECTION */
-        .section-reviews {
-            background-color: #fdf9f2;
-            padding: 96px 0;
+            font-size: 18px;
+            color: var(--text-gray);
+            line-height: 1.6;
         }
 
         .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
-            margin-top: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
         }
 
         .review-card {
             background-color: white;
             padding: 24px;
             border-radius: 12px;
-            box-shadow: 0px 4px 6px rgba(0,0,0,0.1), 0px 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
         .stars {
             display: flex;
             gap: 2px;
-            margin-bottom: 16px;
         }
 
-        .star-icon {
-            width: 16px;
-            height: 16px;
-            color: #f59e0b;
+        .quote-icon {
+            width: 20px;
+            height: 14px;
         }
 
         .review-text {
-            font-style: italic;
-            color: #1c1c18;
-            margin-bottom: 16px;
             font-size: 15px;
-            line-height: 1.63;
+            font-style: italic;
+            color: var(--dark-brown);
+            line-height: 1.6;
+            margin-bottom: 16px;
         }
 
-        .review-author {
-            border-top: 1px solid #e5e7eb;
-            padding-top: 16px;
+        .reviewer-info {
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid var(--light-gray);
         }
 
-        .author-info {
-            flex: 1;
-        }
-
-        .author-name {
-            font-weight: 600;
-            color: #210f07;
+        .reviewer-name {
             font-size: 18px;
+            font-weight: 600;
+            color: var(--dark-brown);
         }
 
-        .author-type {
-            font-weight: 700;
-            color: #944924;
+        .reviewer-badge {
             font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.55px;
             text-transform: uppercase;
-            margin-top: 6px;
+            color: var(--rust);
         }
 
-        .author-avatar {
+        .reviewer-avatar {
             width: 32px;
             height: 32px;
-            background-color: #f1ede6;
+            background-color: var(--lighter-brown);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            color: #382319;
+            color: var(--medium-brown);
             font-size: 12px;
         }
 
+        .cta-link {
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .link-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--rust);
+            display: inline-flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .link-icon {
+            width: 15px;
+            height: 13px;
+        }
+
+        /* GALLERY SECTION */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-item {
+            height: 176px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(33, 15, 7, 0.7), transparent);
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            color: var(--cream);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.36px;
+            z-index: 2;
+        }
+
         /* FAQ SECTION */
-        .section-faq {
-            background-color: #f7f3ec;
+        .faq-section {
+            background-color: var(--light-brown);
             padding: 96px 0;
+            margin-top: 96px;
         }
 
         .faq-container {
@@ -377,764 +370,800 @@
             padding: 0 48px;
         }
 
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
         .faq-list {
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-top: 40px;
         }
 
         .faq-item {
             background-color: white;
             border-radius: 12px;
-            box-shadow: 0px 1px 2px rgba(0,0,0,0.05);
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
             overflow: hidden;
         }
 
-        .faq-header {
+        .faq-toggle {
+            width: 100%;
             padding: 24px;
-            cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background-color 0.2s;
-        }
-
-        .faq-header:hover {
-            background-color: #f9f7f5;
-        }
-
-        .faq-question {
-            font-weight: 600;
-            color: #210f07;
+            background: none;
+            border: none;
+            cursor: pointer;
             font-size: 18px;
+            font-weight: 600;
+            color: var(--dark-brown);
+            text-align: left;
+            transition: all 0.3s ease;
         }
 
-        .faq-toggle {
+        .faq-toggle:hover {
+            background-color: var(--lighter-brown);
+        }
+
+        .faq-toggle-icon {
             width: 12px;
-            height: 7.4px;
-            transition: transform 0.3s;
+            height: 7px;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
         }
 
-        .faq-item.active .faq-toggle {
+        .faq-toggle.active .faq-toggle-icon {
             transform: rotate(180deg);
         }
 
         .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-content.active {
+            max-height: 500px;
+        }
+
+        .faq-answer {
             padding: 0 24px 24px;
-            color: #4f4440;
-            display: none;
+            color: var(--text-gray);
             line-height: 1.6;
         }
 
-        .faq-item.active .faq-content {
-            display: block;
+        .faq-icon {
+            width: auto;
+            height: 18px;
+            margin-right: 8px;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         .faq-cta {
-            background-color: #210f07;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn-dark {
+            background-color: var(--dark-brown);
             color: white;
             padding: 16px 40px;
             border-radius: 9999px;
-            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
             font-weight: 600;
             display: inline-flex;
             gap: 8px;
             align-items: center;
-            margin-top: 40px;
-            box-shadow: 0px 10px 15px rgba(0,0,0,0.1), 0px 4px 6px rgba(0,0,0,0.1);
-            transition: background-color 0.2s;
+            box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        .faq-cta:hover {
-            background-color: #3d2313;
+        .btn-dark:hover {
+            transform: scale(1.05);
         }
 
-        /* CELEBRATION SECTION */
-        .section-celebration {
-            background-color: #382319;
+        .btn-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* CELEBRATION BANNER SECTION */
+        .celebration-section {
+            background-color: var(--medium-brown);
             padding: 40px 0;
-            color: white;
         }
 
         .celebration-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 48px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
+            gap: 48px;
         }
 
-        .celebration-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 56px;
-            margin: 16px 0;
-            font-weight: 600;
-            letter-spacing: -1.12px;
+        .celebration-content {
+            flex: 1;
         }
 
         .celebration-tag {
-            font-weight: 700;
-            color: #ffdbcd;
             font-size: 11px;
-            text-transform: uppercase;
+            font-weight: 700;
             letter-spacing: 1.1px;
+            text-transform: uppercase;
+            color: var(--light-orange);
+            margin-bottom: 8px;
         }
 
-        .celebration-description {
-            color: #e2bfb0;
+        .celebration-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+            letter-spacing: -1.12px;
+            white-space: nowrap;
+        }
+
+        .celebration-desc {
+            color: var(--border-gray);
             font-size: 15px;
-            margin: 16px 0;
             line-height: 1.6;
         }
 
-        .celebration-cta {
-            background-color: #fe9e72;
-            color: #77330f;
+        .btn-accent {
+            background-color: var(--accent-orange);
+            color: var(--medium-brown);
             padding: 16px 40px;
             border-radius: 9999px;
-            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
             font-weight: 600;
-            display: inline-block;
-            box-shadow: 0px 4px 6px rgba(0,0,0,0.1), 0px 2px 4px rgba(0,0,0,0.1);
-            transition: background-color 0.2s;
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        .celebration-cta:hover {
-            background-color: #fb8b58;
+        .btn-accent:hover {
+            transform: scale(1.05);
         }
 
-        /* FOOTER */
-        footer {
-            background-color: #ebe8e1;
-            padding: 40px 48px 24px;
-            margin-top: 40px;
+        /* FOOTER SECTION */
+        .footer {
+            background-color: var(--light-brown);
+            padding: 40px 0 24px;
+            border-top: 1px solid rgba(211, 195, 189, 0.3);
+            margin-top: 100px;
         }
 
         .footer-content {
             max-width: 1280px;
             margin: 0 auto;
+            padding: 0 48px;
         }
 
         .footer-top {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+            grid-template-columns: 5fr 7fr;
+            gap: 24px;
             margin-bottom: 40px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid rgba(211,195,189,0.3);
         }
 
-        .footer-section h3 {
-            font-weight: 700;
-            color: #210f07;
-            font-size: 18px;
-            margin-bottom: 16px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section li {
-            margin-bottom: 8px;
-            color: #4f4440;
-            font-size: 15px;
-        }
-
-        .footer-section a {
-            color: #944924;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-section a:hover {
-            color: #6b3618;
+        .footer-brand {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
         }
 
         .footer-logo {
-            margin-bottom: 16px;
-        }
-
-        .footer-logo-img {
             width: 56px;
             height: 56px;
             border-radius: 50%;
-            background-color: #fdf9f2;
+            background-color: var(--cream);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
         }
 
-        .bakery-name {
+        .footer-brand-text h2 {
             font-family: 'Playfair Display', serif;
             font-size: 28px;
             font-weight: 600;
-            color: #210f07;
+            color: var(--dark-brown);
+            margin-bottom: 4px;
         }
 
-        .bakery-tagline {
-            font-weight: 700;
-            color: #944924;
+        .footer-brand-text p {
             font-size: 11px;
-            text-transform: uppercase;
+            font-weight: 700;
             letter-spacing: 1.1px;
-            margin-top: 6px;
+            text-transform: uppercase;
+            color: var(--rust);
+            margin-bottom: 8px;
         }
 
         .footer-tagline {
-            font-style: italic;
-            color: #210f07;
+            font-family: 'Playfair Display', serif;
             font-size: 22px;
-            margin-bottom: 16px;
+            font-style: italic;
+            color: var(--dark-brown);
+            margin-bottom: 12px;
         }
 
         .footer-description {
-            color: #4f4440;
             font-size: 15px;
-            line-height: 1.63;
+            color: var(--text-gray);
+            line-height: 1.6;
             margin-bottom: 16px;
         }
 
-        .badges {
+        .feature-badges {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
         }
 
-        .badge {
+        .badge-feature {
             background-color: white;
             padding: 4px 8px;
             border-radius: 6px;
-            font-weight: 600;
-            color: #4f4440;
             font-size: 12px;
-            box-shadow: 0px 1px 1px rgba(0,0,0,0.05);
+            font-weight: 600;
+            color: var(--text-gray);
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
             display: flex;
             gap: 4px;
             align-items: center;
         }
 
-        .badge-icon {
+        .badge-feature-icon {
             width: 14px;
             height: 14px;
         }
 
-        .footer-contact {
-            margin-top: 16px;
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
 
-        .contact-item {
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark-brown);
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .footer-column li {
+            font-size: 15px;
+            color: var(--text-gray);
+        }
+
+        .footer-contact {
             display: flex;
             gap: 4px;
-            margin-bottom: 12px;
-            color: #4f4440;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .footer-contact-icon {
             font-size: 15px;
         }
 
-        .contact-label {
-            font-weight: 600;
+        .footer-contact-text {
+            font-size: 15px;
+            color: var(--text-gray);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            font-size: 12px;
+            color: var(--rust);
+            font-weight: 500;
+            letter-spacing: 0.36px;
+        }
+
+        .footer-social-sep {
+            color: var(--rust);
         }
 
         .footer-bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 12px;
-            color: #4f4440;
-            flex-wrap: wrap;
-            gap: 24px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(211, 195, 189, 0.3);
         }
 
         .footer-copyright {
+            font-size: 12px;
             font-weight: 600;
+            color: var(--text-gray);
+            letter-spacing: 0.36px;
+            white-space: nowrap;
+        }
+
+        .footer-tagline-bottom {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--rust);
             letter-spacing: 0.36px;
         }
 
-        .footer-signoff {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            color: #944924;
-            font-weight: 600;
+        .footer-heart {
+            color: #e11d48;
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE DESIGN */
         @media (max-width: 768px) {
-            .container {
+            .header-container {
+                flex-direction: column;
+                gap: 16px;
                 padding: 0 24px;
             }
 
-            h1 {
-                font-size: 36px;
-            }
-
-            .header-banner {
-                padding: 24px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .header-right {
+            .header-left, .header-right {
                 width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
             }
 
-            .celebration-container {
-                flex-direction: column;
-                text-align: center;
+            .main-container {
+                padding: 0 24px;
             }
 
             .reviews-grid {
                 grid-template-columns: 1fr;
             }
 
-            .faq-container {
+            h1 {
+                font-size: 36px;
+            }
+
+            .celebration-container {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
                 padding: 0 24px;
             }
 
-            footer {
-                padding: 24px;
+            .celebration-title {
+                white-space: normal;
+            }
+
+            .celebration-content {
+                text-align: center;
             }
 
             .footer-top {
                 grid-template-columns: 1fr;
             }
 
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
             .footer-bottom {
                 flex-direction: column;
+                gap: 16px;
                 text-align: center;
+            }
+
+            .faq-container {
+                padding: 0 24px;
             }
         }
 
-        .img-placeholder {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 12px;
+        @media (max-width: 480px) {
+            .header-text {
+                font-size: 10px;
+            }
+
+            h1 {
+                font-size: 28px;
+                white-space: normal;
+            }
+
+            .section-subtitle {
+                font-size: 16px;
+            }
+
+            .reviews-grid {
+                gap: 16px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item {
+                height: 140px;
+            }
+
+            .celebration-title {
+                font-size: 32px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER BANNER -->
-    <div class="header-banner">
-        <div class="header-left">
-            <div class="header-badge">🥐</div>
-            <div class="header-label">ARTISANAL PATISSERIE & OVEN HOUSE • COIMBATORE</div>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="badge-small">🥐</div>
+                <div class="header-text">ARTISANAL PATISSERIE & OVEN HOUSE • COIMBATORE</div>
+            </div>
+            <div class="header-right">
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span>Hearth oven active now • Fresh batches out at 08:30 AM</span>
+                </div>
+                <span class="divider">•</span>
+                <div class="rating-group">
+                    <span>⭐⭐⭐⭐⭐</span>
+                    <span class="rating-text">4.9/5 from 1,200+ local foodies</span>
+                </div>
+            </div>
         </div>
-        <div class="header-right">
-            <div class="status-indicator">
-                <div class="status-dot"></div>
-                <div class="status-text">Hearth oven active now • Fresh batches out at 08:30 AM</div>
+    </header>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews-section">
+        <div class="main-container">
+            <div class="section-header">
+                <div style="text-align: center;">
+                    <div class="section-tag">
+                        <span class="section-tag-icon">👍</span>
+                        <span class="section-tag-text">WHAT OUR CUSTOMERS SAY</span>
+                    </div>
+                    <h1>Made Fresh. Loved by Many.</h1>
+                    <p class="section-subtitle">From everyday treats to special celebrations, our customers come back for the taste, freshness, and little details that make every order special.</p>
+                </div>
             </div>
-            <div style="color: #d3c3bd;">•</div>
-            <div class="rating">
-                <span>⭐⭐⭐⭐⭐</span>
-                <div class="rating-text">4.9/5 from 1,200+ local foodies</div>
+
+            <div class="reviews-grid">
+                <!-- Review Card 1 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-header">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span style="font-size: 12px;">💬</span>
+                        </div>
+                        <p class="review-text">"The chocolate cake was absolutely delicious and looked beautiful too. It was fresh, soft, and everyone at the party loved it."</p>
+                    </div>
+                    <div class="reviewer-info">
+                        <div>
+                            <div class="reviewer-name">— Priya, Coimbatore</div>
+                            <div class="reviewer-badge">CELEBRATION ORDER</div>
+                        </div>
+                        <div class="reviewer-avatar">PC</div>
+                    </div>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-header">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span style="font-size: 12px;">💬</span>
+                        </div>
+                        <p class="review-text">"Sweet Crumbs has become our go-to place for evening snacks and coffee. Everything tastes fresh, and the service is always friendly."</p>
+                    </div>
+                    <div class="reviewer-info">
+                        <div>
+                            <div class="reviewer-name">— Arun, Coimbatore</div>
+                            <div class="reviewer-badge">DAILY REGULAR</div>
+                        </div>
+                        <div class="reviewer-avatar">AC</div>
+                    </div>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-header">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span style="font-size: 12px;">💬</span>
+                        </div>
+                        <p class="review-text">"I ordered a custom birthday cake and they got every detail right. The cake looked amazing and tasted even better!"</p>
+                    </div>
+                    <div class="reviewer-info">
+                        <div>
+                            <div class="reviewer-name">— Divya, Coimbatore</div>
+                            <div class="reviewer-badge">CUSTOM THEME CAKE</div>
+                        </div>
+                        <div class="reviewer-avatar">DC</div>
+                    </div>
+                </div>
+
+                <!-- Review Card 4 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-header">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span style="font-size: 12px;">💬</span>
+                        </div>
+                        <p class="review-text">"Fresh pastries, great coffee, and a lovely atmosphere. It's the kind of bakery you want to visit again."</p>
+                    </div>
+                    <div class="reviewer-info">
+                        <div>
+                            <div class="reviewer-name">— Karthik, Coimbatore</div>
+                            <div class="reviewer-badge">CAFÉ VISITOR</div>
+                        </div>
+                        <div class="reviewer-avatar">KC</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-link">
+                <a href="#" class="link-text">Loved your order? → Share Your Experience →</a>
+            </div>
+
+            <!-- GALLERY SECTION -->
+            <div class="gallery">
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=400&fit=crop');"><span class="gallery-label">Morning Viennoiserie</span></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=400&fit=crop');"><span class="gallery-label">Custom Celebration Cakes</span></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1514432324607-2e467f4851e9?w=400&h=400&fit=crop');"><span class="gallery-label">House-Roasted Brews</span></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&h=400&fit=crop');"><span class="gallery-label">Petits Fours & Tartlets</span></div>
             </div>
         </div>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div class="container">
-        <!-- HERO / FORM SECTION -->
-        <section class="section-hero">
-            <div class="section-content">
-                <div class="section-tag">
-                    <span class="tag-text">✨ Place Your Order Now</span>
-                </div>
-                <h1>Fresh Treats, Just for You</h1>
-                <p class="section-subtitle">Tell us a bit about you, and we'll keep you updated on new arrivals, special offers, and sweet moments.</p>
-                
-                <!-- CONTACT FORM -->
-                <div class="form-section">
-                    <h2>Get in Touch</h2>
-                    <p>Join our Sweet Crumbs family and never miss a fresh batch again.</p>
-                    
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required placeholder="Your name">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX">
-                        </div>
-
-                        <button type="submit" class="form-button" id="submitBtn">Send It My Way</button>
-                        <div id="formMessage" class="form-message"></div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- REVIEWS SECTION -->
-        <section class="section-reviews">
-            <div>
-                <div class="section-tag" style="justify-content: center;">
-                    <span class="tag-text">🎉 What Our Customers Say</span>
-                </div>
-                <h1 style="text-align: center; margin-top: 16px;">Made Fresh. Loved by Many.</h1>
-                <p class="section-subtitle" style="text-align: center;">From everyday treats to special celebrations, our customers come back for the taste, freshness, and little details that make every order special.</p>
-
-                <div class="reviews-grid">
-                    <div class="review-card">
-                        <div>
-                            <div class="stars">
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                            <p class="review-text">"The chocolate cake was absolutely delicious and looked beautiful too. It was fresh, soft, and everyone at the party loved it."</p>
-                        </div>
-                        <div class="review-author">
-                            <div class="author-info">
-                                <div class="author-name">— Priya, Coimbatore</div>
-                                <div class="author-type">Celebration Order</div>
-                            </div>
-                            <div class="author-avatar">PC</div>
-                        </div>
-                    </div>
-
-                    <div class="review-card">
-                        <div>
-                            <div class="stars">
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                            <p class="review-text">"Sweet Crumbs has become our go-to place for evening snacks and coffee. Everything tastes fresh, and the service is always friendly."</p>
-                        </div>
-                        <div class="review-author">
-                            <div class="author-info">
-                                <div class="author-name">— Arun, Coimbatore</div>
-                                <div class="author-type">Daily Regular</div>
-                            </div>
-                            <div class="author-avatar">AC</div>
-                        </div>
-                    </div>
-
-                    <div class="review-card">
-                        <div>
-                            <div class="stars">
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                            <p class="review-text">"I ordered a custom birthday cake and they got every detail right. The cake looked amazing and tasted even better!"</p>
-                        </div>
-                        <div class="review-author">
-                            <div class="author-info">
-                                <div class="author-name">— Divya, Coimbatore</div>
-                                <div class="author-type">Custom Theme Cake</div>
-                            </div>
-                            <div class="author-avatar">DC</div>
-                        </div>
-                    </div>
-
-                    <div class="review-card">
-                        <div>
-                            <div class="stars">
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                            <p class="review-text">"Fresh pastries, great coffee, and a lovely atmosphere. It's the kind of bakery you want to visit again."</p>
-                        </div>
-                        <div class="review-author">
-                            <div class="author-info">
-                                <div class="author-name">— Karthik, Coimbatore</div>
-                                <div class="author-type">Café Visitor</div>
-                            </div>
-                            <div class="author-avatar">KC</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+    </section>
 
     <!-- FAQ SECTION -->
-    <section class="section-faq">
+    <section class="faq-section">
         <div class="faq-container">
-            <div style="text-align: center;">
-                <div class="section-tag" style="justify-content: center;">
-                    <span class="tag-text">❓ Got Questions?</span>
+            <div class="faq-header section-header">
+                <div style="text-align: center; width: 100%;">
+                    <div class="section-tag">
+                        <span class="section-tag-icon">❓</span>
+                        <span class="section-tag-text">GOT QUESTIONS?</span>
+                    </div>
+                    <h1>Everything You Need to Know</h1>
+                    <p class="section-subtitle">Whether you're ordering a birthday cake or just stopping by for a quick coffee, here are answers to some of our most common questions.</p>
                 </div>
-                <h1 style="text-align: center; margin-top: 16px;">Everything You Need to Know</h1>
-                <p class="section-subtitle" style="text-align: center;">Whether you're ordering a birthday cake or just stopping by for a quick coffee, here are answers to some of our most common questions.</p>
             </div>
 
             <div class="faq-list">
                 <div class="faq-item">
-                    <div class="faq-header">
-                        <div class="faq-question">🎂 Do you take custom cake orders?</div>
-                        <svg class="faq-toggle" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#944924" stroke-width="2"/></svg>
-                    </div>
+                    <button class="faq-toggle" onclick="toggleFaq(this)">
+                        <span>📋 Do you take custom cake orders?</span>
+                        <span class="faq-toggle-icon">▼</span>
+                    </button>
                     <div class="faq-content">
-                        Yes! We love creating custom cakes for all occasions. Birthdays, anniversaries, corporate events—you name it, we'll bake it. Please place orders at least 3-5 days in advance for best results.
+                        <div class="faq-answer">Yes! We specialize in custom cakes for all occasions. Contact us at least 3-5 days before your event to discuss your design and preferences. We can accommodate dietary requirements including vegan and gluten-free options.</div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-header">
-                        <div class="faq-question">📅 How early should I order a custom cake?</div>
-                        <svg class="faq-toggle" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#944924" stroke-width="2"/></svg>
-                    </div>
+                    <button class="faq-toggle" onclick="toggleFaq(this)">
+                        <span>⏰ How early should I order a custom cake?</span>
+                        <span class="faq-toggle-icon">▼</span>
+                    </button>
                     <div class="faq-content">
-                        For custom orders, we recommend placing them 5-7 days in advance. This gives our bakers time to perfect your design and ensure the freshest ingredients. Rush orders (2-3 days) are available for an additional charge.
+                        <div class="faq-answer">We recommend ordering at least 3-5 days in advance for best results. For simple orders, we can accommodate rush requests, but it depends on our current schedule. Contact us directly to check availability for your date.</div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-header">
-                        <div class="faq-question">💬 Can I order through WhatsApp?</div>
-                        <svg class="faq-toggle" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#944924" stroke-width="2"/></svg>
-                    </div>
+                    <button class="faq-toggle" onclick="toggleFaq(this)">
+                        <span>💬 Can I order through WhatsApp?</span>
+                        <span class="faq-toggle-icon">▼</span>
+                    </button>
                     <div class="faq-content">
-                        Absolutely! WhatsApp is our fastest and easiest way to communicate. Send us photos of your cake ideas, ask questions, and confirm orders directly. We're usually online during business hours.
+                        <div class="faq-answer">Absolutely! WhatsApp is one of our preferred ordering methods. Save our number and send us a message with your order details, photos of design inspiration, and preferred delivery date. We'll send you quotation and confirm your booking.</div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-header">
-                        <div class="faq-question">🚚 Do you offer cake delivery in Coimbatore?</div>
-                        <svg class="faq-toggle" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#944924" stroke-width="2"/></svg>
-                    </div>
+                    <button class="faq-toggle" onclick="toggleFaq(this)">
+                        <span>🚚 Do you offer cake delivery in Coimbatore?</span>
+                        <span class="faq-toggle-icon">▼</span>
+                    </button>
                     <div class="faq-content">
-                        Yes, we deliver cakes across Coimbatore city. Delivery charges apply based on distance. Orders must be confirmed at least 2 days in advance for delivery arrangements.
+                        <div class="faq-answer">Yes, we deliver throughout Coimbatore for orders above ₹500. Delivery charges vary based on location. We ensure careful handling and temperature-controlled transport to keep your cake fresh. Place orders before 5 PM for next-day delivery.</div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-header">
-                        <div class="faq-question">✏️ Can I add a personal message to my cake?</div>
-                        <svg class="faq-toggle" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#944924" stroke-width="2"/></svg>
-                    </div>
+                    <button class="faq-toggle" onclick="toggleFaq(this)">
+                        <span>✍️ Can I add a personal message to my cake?</span>
+                        <span class="faq-toggle-icon">▼</span>
+                    </button>
                     <div class="faq-content">
-                        Of course! Personal messages, names, and special dedications are included in our custom cake orders. Let us know exactly what you'd like and how you'd like it written.
+                        <div class="faq-answer">Of course! We can write personalized messages on cakes using food-safe icing. Whether it's a name, quote, or special message, just let us know when you place your order. We offer multiple font styles and colors to match your theme.</div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-header">
-                        <div class="faq-question">⏰ Do you accept same-day orders?</div>
-                        <svg class="faq-toggle" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#944924" stroke-width="2"/></svg>
-                    </div>
+                    <button class="faq-toggle" onclick="toggleFaq(this)">
+                        <span>📞 Do you accept same-day orders?</span>
+                        <span class="faq-toggle-icon">▼</span>
+                    </button>
                     <div class="faq-content">
-                        Same-day orders depend on availability and complexity. Our ready-made pastries and simple cakes can sometimes be ready same-day. Best to call or WhatsApp us to check availability.
+                        <div class="faq-answer">We can usually accommodate same-day orders for simple items like pastries, cookies, and basic cakes if you call before 2 PM. Custom designed cakes require advance notice. Call us immediately for availability and rush charges may apply.</div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-header">
-                        <div class="faq-question">💳 What payment options are available?</div>
-                        <svg class="faq-toggle" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#944924" stroke-width="2"/></svg>
-                    </div>
+                    <button class="faq-toggle" onclick="toggleFaq(this)">
+                        <span>💳 What payment options are available?</span>
+                        <span class="faq-toggle-icon">▼</span>
+                    </button>
                     <div class="faq-content">
-                        We accept cash, online transfers (UPI, bank transfer), and card payments. For custom orders, we require a 50% advance payment to confirm your booking.
+                        <div class="faq-answer">We accept cash, UPI (Google Pay, PhonePe, Paytm), credit/debit cards, and bank transfers. For online orders, you can pay via our secure payment gateway. A 30% advance is required for custom orders, with the balance due on delivery.</div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-header">
-                        <div class="faq-question">🕐 What are your opening hours?</div>
-                        <svg class="faq-toggle" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#944924" stroke-width="2"/></svg>
-                    </div>
+                    <button class="faq-toggle" onclick="toggleFaq(this)">
+                        <span>🕐 What are your opening hours?</span>
+                        <span class="faq-toggle-icon">▼</span>
+                    </button>
                     <div class="faq-content">
-                        We're open daily from 8:00 AM to 10:00 PM. Our fresh batches come out at 8:30 AM, so arrive early for the best selection. We're closed only on major national holidays.
+                        <div class="faq-answer">We're open daily from 8:00 AM to 10:00 PM. Our bakery items are fresh starting from 8:30 AM. For special orders or consultations outside regular hours, contact us in advance. We're closed only on major public holidays.</div>
                     </div>
                 </div>
             </div>
 
-            <a href="#" class="faq-cta">💬 Still have a question? Talk to Us on WhatsApp →</a>
+            <div class="faq-cta">
+                <button class="btn-dark">
+                    <span>💬</span>
+                    Still have a question? Talk to Us on WhatsApp →
+                </button>
+            </div>
         </div>
     </section>
 
     <!-- CELEBRATION SECTION -->
-    <div class="section-celebration">
-        <div class="container">
-            <div class="celebration-container">
-                <div>
-                    <div class="celebration-tag">CUSTOM CELEBRATIONS • MADE FRESH DAILY</div>
-                    <h2>Have a celebration coming up?</h2>
-                    <p class="celebration-description">From multi-tier wedding centrepieces to bespoke artisan birthday creations, let our master bakers bring your dream dessert to reality.</p>
-                </div>
-                <a href="#" class="celebration-cta">Let's Make It Sweeter →</a>
+    <section class="celebration-section">
+        <div class="celebration-container">
+            <div class="celebration-content">
+                <div class="celebration-tag">CUSTOM CELEBRATIONS • MADE FRESH DAILY</div>
+                <h1 class="celebration-title">Have a celebration coming up?</h1>
+                <p class="celebration-desc">From multi-tier wedding centrepieces to bespoke artisan birthday creations, let our master bakers bring your dream dessert to reality.</p>
             </div>
+            <button class="btn-accent">Let's Make It Sweeter →</button>
         </div>
-    </div>
+    </section>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-top">
-                <div>
-                    <div class="footer-logo">
-                        <div class="bakery-name">Sweet Crumbs Bakery</div>
-                        <div class="bakery-tagline">ARTISANAL PATISSERIE</div>
-                    </div>
-                    <div class="footer-tagline">Fresh Bakes. Sweet Moments.</div>
-                    <p class="footer-description">At Sweet Crumbs Bakery, we bake fresh treats for everyday cravings and the moments worth celebrating. Drop by for a coffee, pick up your favourite pastry, or let us create something special for your next celebration.</p>
-                    <div class="badges">
-                        <div class="badge">
-                            <span>✓</span>
-                            <span>100% Pure Butter</span>
-                        </div>
-                        <div class="badge">
-                            <span>✓</span>
-                            <span>Zero Artificial Preservatives</span>
+                <!-- Left Column: Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">🧁</div>
+                    <div class="footer-brand-text">
+                        <h2>Sweet Crumbs Bakery</h2>
+                        <p>ARTISANAL PATISSERIE</p>
+                        <p class="footer-tagline">Fresh Bakes. Sweet Moments.</p>
+                        <p class="footer-description">At Sweet Crumbs Bakery, we bake fresh treats for everyday cravings and the moments worth celebrating. Drop by for a coffee, pick up your favourite pastry, or let us create something special for your next celebration.</p>
+                        <div class="feature-badges">
+                            <div class="badge-feature">
+                                <span class="badge-feature-icon">✓</span>
+                                <span>100% Pure Butter</span>
+                            </div>
+                            <div class="badge-feature">
+                                <span class="badge-feature-icon">✓</span>
+                                <span>Zero Artificial Preservatives</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div>
-                    <div class="footer-section">
+                <!-- Right Column: Links -->
+                <div class="footer-links">
+                    <!-- Quick Links -->
+                    <div class="footer-column">
                         <h3>Quick Links</h3>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Our Menu</a></li>
-                            <li><a href="#">Cakes</a></li>
-                            <li><a href="#">Offers</a></li>
-                            <li><a href="#">Gallery</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="#" style="color: var(--text-gray); text-decoration: none;">Home</a></li>
+                            <li><a href="#" style="color: var(--text-gray); text-decoration: none;">Our Menu</a></li>
+                            <li><a href="#" style="color: var(--text-gray); text-decoration: none;">Cakes</a></li>
+                            <li><a href="#" style="color: var(--text-gray); text-decoration: none;">Offers</a></li>
+                            <li><a href="#" style="color: var(--text-gray); text-decoration: none;">Gallery</a></li>
+                            <li><a href="#" style="color: var(--text-gray); text-decoration: none;">About Us</a></li>
+                            <li><a href="#" style="color: var(--text-gray); text-decoration: none;">Contact</a></li>
                         </ul>
                     </div>
-                </div>
 
-                <div>
-                    <div class="footer-section">
+                    <!-- Our Categories -->
+                    <div class="footer-column">
                         <h3>Our Categories</h3>
                         <ul>
-                            <li><a href="#">Birthday Cakes</a></li>
-                            <li><a href="#">Pastries</a></li>
-                            <li><a href="#">Fresh Snacks</a></li>
-                            <li><a href="#">Coffee & Tea</a></li>
-                            <li><a href="#">Milkshakes</a></li>
-                            <li><a href="#">Custom Cakes</a></li>
+                            <li><a href="#" style="color: var(--text-gray); text-decoration: none;">Birthday Cakes</a></li>
+                            <li><a href="#" style="color: var(--text-gray); text-decoration: none;">Pastries</a></li>
+                            <li><a href="#" style="color: var(--text-gray); text-decoration: none;">Fresh Snacks</a></li>
+                            <li><a href="#" style="color: var(--text-gray); text-decoration: none;">Coffee & Tea</a></li>
+                            <li><a href="#" style="color: var(--text-gray); text-decoration: none;">Milkshakes</a></li>
+                            <li><a href="#" style="color: var(--text-gray); text-decoration: none;">Custom Cakes</a></li>
                         </ul>
                     </div>
-                </div>
 
-                <div>
-                    <div class="footer-section">
+                    <!-- Visit Us & Contact -->
+                    <div class="footer-column">
                         <h3>Visit Us</h3>
-                        <p style="color: #4f4440; font-size: 15px; margin-bottom: 8px;">Sweet Crumbs Bakery<br>Coimbatore, Tamil Nadu</p>
-                        <p style="font-weight: 600; color: #944924; font-size: 12px; margin-bottom: 16px;">Open Daily 8:00 AM – 10:00 PM</p>
+                        <div style="font-size: 15px; color: var(--text-gray); margin-bottom: 12px;">
+                            <p>Sweet Crumbs Bakery</p>
+                            <p>Coimbatore, Tamil Nadu</p>
+                        </div>
+                        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.36px; color: var(--rust); margin-bottom: 16px;">
+                            Open Daily 8:00 AM – 10:00 PM
+                        </div>
 
                         <h3>Contact</h3>
-                        <div class="contact-item">
-                            <span>📞</span>
-                            <span>+91 XXXXX XXXXX</span>
+                        <div class="footer-contact">
+                            <span class="footer-contact-icon">📞</span>
+                            <span class="footer-contact-text">+91 XXXXX XXXXX</span>
                         </div>
-                        <div class="contact-item">
-                            <span>📧</span>
-                            <span>sweetcrumbs@example.com</span>
+                        <div class="footer-contact">
+                            <span class="footer-contact-icon">📧</span>
+                            <span class="footer-contact-text">sweetcrumbs@example.com</span>
                         </div>
 
-                        <h3 style="margin-top: 16px; font-size: 11px; text-transform: uppercase; letter-spacing: 1.1px;">Social</h3>
-                        <p style="color: #944924; font-size: 12px; margin-top: 8px;">
-                            <a href="#" style="color: #944924;">Instagram</a> • 
-                            <a href="#" style="color: #944924;">Facebook</a> • 
-                            <a href="#" style="color: #944924;">WhatsApp</a>
-                        </p>
+                        <div style="margin-top: 16px;">
+                            <h3>Social</h3>
+                            <div class="footer-social">
+                                <a href="#" style="color: var(--rust); text-decoration: none;">Instagram</a>
+                                <span class="footer-social-sep">•</span>
+                                <a href="#" style="color: var(--rust); text-decoration: none;">Facebook</a>
+                                <span class="footer-social-sep">•</span>
+                                <a href="#" style="color: var(--rust); text-decoration: none;">WhatsApp</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Footer Bottom -->
             <div class="footer-bottom">
                 <div class="footer-copyright">© 2026 Sweet Crumbs Bakery. All rights reserved.</div>
-                <div class="footer-signoff">Freshly Baked With Love ❤️</div>
+                <div class="footer-tagline-bottom">
+                    Freshly Baked With Love
+                    <span class="footer-heart">❤️</span>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // SCRIPT URL - Replace with your deployed AppScript URL
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyL4TNk8zENd4kiA3u-qY69y7OW_ldvYSkS3Ayl7KOt6TapCheYYNLle0pTgI5Ib12N/exec';
-
-        const form = document.getElementById('contactForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const formMessage = document.getElementById('formMessage');
-
-        // Form submission handler
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Get form values
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-
-            // Validation
-            if (!name || !email || !phone) {
-                showError('Please fill in all fields');
-                return;
-            }
-
-            if (!isValidEmail(email)) {
-                showError('Please enter a valid email address');
-                return;
-            }
-
-            // Disable button while submitting
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-
-            // Build URL with query parameters
-            const params = new URLSearchParams({ name, email, phone });
-            const url = SCRIPT_URL + '?' + params.toString();
-
-            // Fetch with GET and no-cors mode
-            fetch(url, {
-                method: 'GET',
-                mode: 'no-cors'
-            })
-            .then(() => {
-                // Success - response is opaque so we just assume it worked
-                showSuccess();
-                form.reset();
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Send It My Way';
-            })
-            .catch(() => {
-                // Error
-                showError('There was an issue sending your message. Please try again.');
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Send It My Way';
-            });
-        });
-
-        function showSuccess() {
-            formMessage.textContent = '✓ Thank you! Your message has been received. We\'ll be in touch soon!';
-            formMessage.className = 'form-message success';
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 5000);
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            button.classList.toggle('active');
+            content.classList.toggle('active');
         }
-
-        function showError(message) {
-            formMessage.textContent = '✗ ' + message;
-            formMessage.className = 'form-message error';
-        }
-
-        function isValidEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-
-        // FAQ ACCORDION
-        const faqHeaders = document.querySelectorAll('.faq-header');
-        faqHeaders.forEach(header => {
-            header.addEventListener('click', function() {
-                const faqItem = this.closest('.faq-item');
-                
-                // Close other items
-                document.querySelectorAll('.faq-item.active').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
-                    }
-                });
-
-                // Toggle current item
-                faqItem.classList.toggle('active');
-            });
-        });
     </script>
 </body>
 </html>
